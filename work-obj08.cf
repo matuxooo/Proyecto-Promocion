@@ -1,0 +1,14 @@
+v 4
+file . "sync_TB.vhdl" "22b8bfe2766db6dd717c2cc8f7ce697adb3369d9" "20230321221524.517":
+  entity sync_tb at 1( 0) + 0 on 11;
+  architecture tb of sync_tb at 8( 107) + 0 on 12;
+file . "sync2_tb.vhd" "52f18e858da7accf3d5cc60c86b6a5fb91daed4d" "20230321221524.340":
+  entity tb_vga_controller at 2( 27) + 0 on 4;
+  architecture testbench of tb_vga_controller at 11( 234) + 0 on 4;
+file . "sync.vhd" "6022771aabf4085675cf8a1eff051cdc0df9a1c4" "20230321221524.518":
+  entity sync at 1( 0) + 0 on 16;
+  architecture solucion of sync at 20( 452) + 0 on 17;
+file . "ffd.vhd" "a53745303aefcb377aadbf9e15dc7fefc5786a1e" "20230321221524.518":
+  package ffd_pkg at 1( 0) + 0 on 13;
+  entity ffd at 16( 377) + 0 on 14;
+  architecture solucion of ffd at 31( 687) + 0 on 15;
