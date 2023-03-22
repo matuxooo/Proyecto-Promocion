@@ -37,40 +37,31 @@ flipflop_v: ffd
                        D => cont_v);
 
 
-    cont_hz: process(clk,rst,cont_act)
+    cont_hz: process(all)
     begin   
-    cont_h<= cont_act;
-    if(rst='1') then
-        cont_h <= (others => '0');
-    elsif(clk'event and clk='1')then
-        if(cont_act = "1100011111")then
+        cont_h <= cont_act;
+        if (unsigned(cont_act) = 799)then
             cont_h <= (others => '0');
         else
             cont_h <= std_logic_vector(unsigned (cont_act)+1);
         end if;
-    end if;
     end process;
 
 
-    cont_vz: process(cont_act,rst,cont_act_v)
+    cont_vz: process(all)
     begin   
-    cont_v<= cont_act_v;
-    if(rst='1') then
-        cont_v <= (others => '0');
-        elsif(cont_act = "1100011111")then
-            cont_v <= std_logic_vector(unsigned (cont_act_v)+1);
-            elsif(cont_act_v= "1000001100") then
-                cont_v <= (others => '0');
-            
-        
-    end if;
+        cont_v <= cont_act_v;
+        if(unsigned(cont_act) = 524)then
+            cont_v <= (others => '0');
+        else
+            cont_v <= std_logic_vector(unsigned (cont_act_v)+1);        
+        end if;
     end process;
 
 
-
-    sync_h<='1' when cont_act<="1010111111"else '0';
-    sync_v<='1' when cont_act_v <= "1000001010" else '0';
-    muestra<='1' when cont_act<="1010111111" and cont_act_v <= "1000001010"else '0';
+    sync_h<='0' when ((unsigned(cont_act) >= 656) and (unsigned(cont_act) <= 751)) else '1';
+    sync_v<='0' when ((unsigned(cont_act_v) >= 490) and (unsigned(cont_act_v) <= 491)) else '1';
+--    muestra<='1' when cont_act<="1010111111" and cont_act_v <= "1000001010"else '0';
 
 
 
