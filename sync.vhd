@@ -62,8 +62,9 @@ cont_v <= cont_act_v;
     sync_h<='1' when ((unsigned(cont_act_h) >= 656) and (unsigned(cont_act_h) <= 751)) else '0';
     sync_v<='1' when ((unsigned(cont_act_v) >= 490) and (unsigned(cont_act_v) <= 491)) else '0';
     muestra<='1' when(sync_h = '0' and sync_v ='0') else '0';
-
+            
 
     end solucion;
         
-     
+-- columna visible <= 639
+-- 111 >= fila visible <= 240 

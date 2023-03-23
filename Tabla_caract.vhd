@@ -12,7 +12,8 @@ end tabla_caract;
 architecture solucion of tabla_caract is
 signal codigo_char_e : std_logic_vector (6 downto 0);
     begin 
-    unsigned(codigo_char)
+  
+    codigo_char_e  <=  ( unsigned(codigo_char));
     with codigo_char_e select
     char <=    x"0000000000000000"  when  0,      
                x"7e81a581bd99817e"  when  1, 
@@ -142,45 +143,6 @@ signal codigo_char_e : std_logic_vector (6 downto 0);
                x"e030301c3030e000"  when  125, 
                x"76dc000000000000"  when  126, 
                x"10386cc6c6c6fe00"  when  127, 
-               x"78ccc0cc78180c78"  when  128, 
-               x"00cc00cccccc7e00"  when  129, 
-               x"1c0078ccfcc07800"  when  130, 
-               x"7ec33c063e663f00"  when  131, 
-               x"cc00780c7ccc7e00"  when  132, 
-               x"e000780c7ccc7e00"  when  133, 
-               x"3030780c7ccc7e00"  when  134, 
-               x"00007cc0c07c063c"  when  135, 
-               x"7ec33c667e603c00"  when  136, 
-               x"cc0078ccfcc07800"  when  137, 
-               x"e00078ccfcc07800"  when  138, 
-               x"cc00703030307800"  when  139, 
-               x"7cc6381818183c00"  when  140, 
-               x"e000703030307800"  when  141, 
-               x"cc3078ccccfccc00"  when  142, 
-               x"30300078ccfccc00"  when  143, 
-               x"1c00fc607860fc00"  when  144, 
-               x"00007f0c7fcc7f00"  when  145, 
-               x"3e6cccfeccccce00"  when  146, 
-               x"78cc0078cccc7800"  when  147, 
-               x"00cc0078cccc7800"  when  148, 
-               x"00e00078cccc7800"  when  149, 
-               x"78cc00cccccc7e00"  when  150, 
-               x"00e000cccccc7e00"  when  151, 
-               x"00cc00ccccfc0cf8"  when  152, 
-               x"c6387cc6c67c3800"  when  153, 
-               x"cc00cccccccc7800"  when  154, 
-               x"18187ec0c07e1818"  when  155, 
-               x"386c64f060e6fc00"  when  156, 
-               x"cccc78fc30fc3000"  when  157, 
-               x"f0d8d8f4ccdecc0e"  when  158, 
-               x"0e1b187e1818d870"  when  159, 
-               x"1c00780c7ccc7e00"  when  160, 
-               x"3800703030307800"  when  161, 
-               x"001c0078cccc7800"  when  162, 
-               x"001c00cccccc7e00"  when  163, 
-               x"00f800f8cccccc00"  when  164, 
-               x"fc00ccecfcdccc00"  when  165, 
-               x"3c6c6c3e007e0000"  when  166, 
                x"ffffffffffffffff"  when others;
     
 
