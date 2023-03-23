@@ -18,14 +18,14 @@ entity sync is
     end sync;
 
 architecture solucion of sync is
-signal cont_act, cont_h, cont_v, cont_act_v: std_logic_vector(9 downto 0);
+signal cont_act_h, cont_h, cont_v, cont_act_v: std_logic_vector(9 downto 0);
  
 begin
   flipflop_h: ffd
   generic map (N => 10)
             port map  (rst => rst, 
                        clk => clk, 
-                       Q => cont_act,
+                       Q => cont_act_h,
                        D => cont_h);
 
 
@@ -39,50 +39,31 @@ flipflop_v: ffd
 
     cont_hz: process(all)
     begin   
-        cont_h <= cont_act;
-        if (unsigned(cont_act) = 799)then
+        cont_h <= cont_act_h;
+        if (unsigned(cont_act_h) = 799)then
             cont_h <= (others => '0');
         else
-            cont_h <= std_logic_vector(unsigned (cont_act)+1);
+            cont_h <= std_logic_vector(unsigned (cont_act_h)+1);
         end if;
     end process;
 
 
     cont_vz: process(all)
     begin   
-        cont_v <= cont_act_v;
-        if(unsigned(cont_act) = 524)then
+cont_v <= cont_act_v;
+        if(unsigned(cont_act_v) = 524 ) then
             cont_v <= (others => '0');
-        else
+        elsif cont_h = "0000000000" then 
             cont_v <= std_logic_vector(unsigned (cont_act_v)+1);        
         end if;
     end process;
 
 
-    sync_h<='0' when ((unsigned(cont_act) >= 656) and (unsigned(cont_act) <= 751)) else '1';
-    sync_v<='0' when ((unsigned(cont_act_v) >= 490) and (unsigned(cont_act_v) <= 491)) else '1';
---    muestra<='1' when cont_act<="1010111111" and cont_act_v <= "1000001010"else '0';
-
-
-
- -- Generar señal de sincronización horizontal
- --   sincro_h: process(clk)
- --   begin
- --       h_sync <= '0';
- --       wait for 3.81 us;
- --       h_sync <= '1';
- --       wait for 27.96 ms;
- --   end process;
---
- --   -- Generar señal de sincronización vertical
- --   sincro_v: process(clk)
- --   begin
- --       v_sync <= '0';
- --       wait for 0.06 ms;
- --       v_sync <= '1';
- --       wait for 16.62 ns;
- --   end process;
+    sync_h<='1' when ((unsigned(cont_act_h) >= 656) and (unsigned(cont_act_h) <= 751)) else '0';
+    sync_v<='1' when ((unsigned(cont_act_v) >= 490) and (unsigned(cont_act_v) <= 491)) else '0';
+    muestra<='1' when(sync_h = '0' and sync_v ='0') else '0';
 
 
     end solucion;
         
+     

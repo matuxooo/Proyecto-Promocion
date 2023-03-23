@@ -55,7 +55,7 @@ begin
     rst_in <='1';
     wait for 20 ns;
     rst_in <='0';
-    wait for 17 ms;
+    wait for 20 ms;
 finish;
 end process;
 end TB;
