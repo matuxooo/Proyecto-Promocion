@@ -7,7 +7,6 @@ entity sync is
  port(
             rst     :in std_logic;
             clk     :in std_logic;
-
             sync_v   :out std_logic;
             sync_h   :out std_logic;
             muestra :out std_logic;
