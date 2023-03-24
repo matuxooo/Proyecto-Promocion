@@ -62,12 +62,39 @@ architecture arch of top is
         );
     end component;
 
+--señales generador de caract
+    signal fila_z         : in        std_logic_vector    (2 downto 0);
+    signal columna_z      : in        std_logic_vector    (2 downto 0);
+    signal char           : in        std_logic_vector    (63 downto 0);
+    signal muestra        : in std_logic;
+    signal px_visible     : out       std_logic
 
-    signal codigo_char_e : std_logic_vector (6 downto 0);
+ --señales posicion_texto
+    signal fila            : in    std_logic_vector    (9 downto 0);
+    signal columna         : in    std_logic_vector    (9 downto 0);  
+    signal  muestra        : in    std_logic;      
+    signal fila_z          : out    std_logic_vector    (2 downto 0);
+    signal columna_Z       : out    std_logic_vector    (2 downto 0);  
+    signal n_zona          : out   std_logic_vector    (4 downto 0);
+    signal codigo_char     : out std_logic_vector (6 downto 0);
+    signal char            : in std_logic_vector (63 downto 0);
+    signal valido          : out   std_logic
 
-    signal alinea       : std_logic_vector (9 downto 0);
-    
-    signal cont_act_h   : std_logic_vector(9 downto 0);
-    signal cont_h       : std_logic_vector(9 downto 0);
-    signal cont_v       : std_logic_vector(9 downto 0);
-    signal cont_act_v   : std_logic_vector(9 downto 0);
+--señales tabla decaract
+    signalcodigo_char     : in std_logic_vector (6 downto 0);
+    char                  : out std_logic_vector (63 downto 0)
+
+--señales sync
+    signal rst     :in std_logic;
+    signal clk     :in std_logic;
+
+    signal sync_v   :out std_logic;
+    signal sync_h   :out std_logic;
+    signal muestra :out std_logic;
+    signal fila    :out std_logic_vector(9 downto 0);
+    signal columna :out std_logic_vector(9 downto 0)
+--
+--    signal cont_act_h   : std_logic_vector(9 downto 0);
+--    signal cont_h       : std_logic_vector(9 downto 0);
+--    signal cont_v       : std_logic_vector(9 downto 0);
+--    signal cont_act_v   : std_logic_vector(9 downto 0);
