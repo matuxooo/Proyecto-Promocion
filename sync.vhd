@@ -10,9 +10,9 @@ entity sync is
 
             sync_v   :out std_logic;
             sync_h   :out std_logic;
+            muestra :out std_logic;
             fila    :out std_logic_vector(9 downto 0);
-            columna :out std_logic_vector(9 downto 0);
-            muestra :out std_logic
+            columna :out std_logic_vector(9 downto 0)
 
           );
     end sync;
