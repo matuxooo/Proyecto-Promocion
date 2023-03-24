@@ -1,23 +1,23 @@
 v 4
-file . "ffd.vhd" "a53745303aefcb377aadbf9e15dc7fefc5786a1e" "20230323214451.904":
+file . "ffd.vhd" "a53745303aefcb377aadbf9e15dc7fefc5786a1e" "20230323222344.172":
   package ffd_pkg at 1( 0) + 0 on 13;
   entity ffd at 16( 377) + 0 on 14;
   architecture solucion of ffd at 31( 687) + 0 on 15;
-file . "sync.vhd" "b93f0603c33a6cc605886d4d8f3693d62af44711" "20230323214451.904":
+file . "sync.vhd" "87729c88ade878cd71cab947ba5aef83cbb1efa1" "20230323222344.172":
   entity sync at 1( 0) + 0 on 16;
   architecture solucion of sync at 20( 452) + 0 on 17;
-file . "sync2_tb.vhd" "52f18e858da7accf3d5cc60c86b6a5fb91daed4d" "20230323214451.226":
+file . "sync2_tb.vhd" "52f18e858da7accf3d5cc60c86b6a5fb91daed4d" "20230323222343.918":
   entity tb_vga_controller at 2( 27) + 0 on 4;
   architecture testbench of tb_vga_controller at 11( 234) + 0 on 4;
-file . "sync_TB.vhdl" "31b36334c812adf499b70ff09c8520557e955570" "20230323214451.904":
+file . "sync_TB.vhdl" "31b36334c812adf499b70ff09c8520557e955570" "20230323222344.172":
   entity sync_tb at 1( 0) + 0 on 11;
   architecture tb of sync_tb at 8( 107) + 0 on 12;
-file . "generador.vhd" "f674b8e4b041399d8513cf135d63be35f96b9a60" "20230323214451.225":
+file . "generador.vhd" "f135047425bdde0b5c2376e891c4c1e429a682c5" "20230323222343.916":
   entity generador at 1( 0) + 0 on 4;
-  architecture solucion of generador at 18( 477) + 0 on 4;
-file . "posicion_texto.vhd" "dc15dfa2a3522633d875dc922bd9de19e1efcdc6" "20230323214451.226":
+  architecture solucion of generador at 18( 476) + 0 on 4;
+file . "posicion_texto.vhd" "f3eb01cb2ace6f14c2cf8f6ad4be8eb435d50a62" "20230323222343.917":
   entity posicion_texto at 1( 0) + 0 on 4;
-  architecture solucion of posicion_texto at 19( 601) + 0 on 4;
-file . "Tabla_caract.vhd" "6bba872d0add274fec204c1ec2b4416eacea3a37" "20230323214451.227":
+  architecture solucion of posicion_texto at 19( 600) + 0 on 4;
+file . "Tabla_caract.vhd" "6bba872d0add274fec204c1ec2b4416eacea3a37" "20230323222343.920":
   entity tabla_caract at 1( 0) + 0 on 4;
   architecture solucion of tabla_caract at 12( 249) + 0 on 4;
