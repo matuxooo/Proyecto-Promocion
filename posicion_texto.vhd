@@ -9,9 +9,11 @@ entity posicion_texto is
         fila           : in    std_logic_vector    (9 downto 0);
         columna         : in    std_logic_vector    (9 downto 0);  
         muestra         : in    std_logic;      
-        linea_z         : out    std_logic_vector    (2 downto 0);
+        fila_z         : out    std_logic_vector    (2 downto 0);
         columna_Z       : out    std_logic_vector    (2 downto 0);  
         n_zona          : out   std_logic_vector    (4 downto 0);
+        char_code       : out std_logic_vector (6 downto 0);
+        char            : in std_logic_vector (63 downto 0);
         valido          : out   std_logic
     );
 end posicion_texto;
@@ -26,13 +28,20 @@ begin
 
 
 
-    alinea          <= std_logic_vector( unsigned (fila) - 48);
+    alinea          <= std_logic_vector( unsigned (fila) - 112);
     
-    linea_z         <=  alinea (6 downto 4);
+    fila_z         <=  alinea (6 downto 4);
 
 
-    valido          <= '1' when (unsigned (fila) > 47 and unsigned (fila) < 431 and muestra = '1') else '0';
-
-    n_zona          <= columna (9 downto 7) & alinea (8 downto 7);
+    valido          <=  muestra 
+    with   columna (9 downto 7) select 
+    codigo_char <=  "" when "0000"
+                    "" when "0000"
+                    "" when "0000"
+                    "" when "0000"
+                    "" when "0000"
+                    "" when "0000"
+                    "" when "0000"
+                    "0000" when others;
 
 end solucion;
