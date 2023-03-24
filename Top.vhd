@@ -61,3 +61,6 @@ architecture arch of top is
             char            : out std_logic_vector (63 downto 0)
         );
     end component;
+
+
+    signal
