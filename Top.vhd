@@ -98,3 +98,47 @@ architecture arch of top is
 --    signal cont_h       : std_logic_vector(9 downto 0);
 --    signal cont_v       : std_logic_vector(9 downto 0);
 --    signal cont_act_v   : std_logic_vector(9 downto 0);
+
+
+begin
+
+    sincro: sync
+    port map(
+        rst     =>  rst    ,
+        clk     =>  clk    ,
+        sync_v  =>  sync_v ,
+        sync_h  =>  sync_h ,
+        muestra =>  muestra,
+        fila    =>  fila   ,
+        columna =>  columna
+    );
+
+    gen: generador
+    port map(
+        fila_z    =>fila_z    ,
+        columna_z =>columna_z ,
+        char      =>char      ,
+        muestra   =>muestra   ,
+        px_visible=>px_visible
+    );
+
+    pos_txt: posicion_texto
+    port map(
+        fila       =>fila       ,
+        columna    =>columna    ,
+        muestra    =>muestra    ,
+        fila_z     =>fila_z     ,
+        columna_Z  =>columna_Z  ,
+        n_zona     =>n_zona     ,
+        codigo_char=>codigo_char,
+        char       =>char       ,
+        valido     =>valido     
+    );
+
+    tabla_char: tabla_caract
+    port map(
+        codigo_char => codigo_char,
+        char        => char       
+    );
+
+end arch;
