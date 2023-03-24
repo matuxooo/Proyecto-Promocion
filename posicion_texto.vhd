@@ -12,7 +12,7 @@ entity posicion_texto is
         fila_z         : out    std_logic_vector    (2 downto 0);
         columna_Z       : out    std_logic_vector    (2 downto 0);  
         n_zona          : out   std_logic_vector    (4 downto 0);
-        char_code       : out std_logic_vector (6 downto 0);
+        codigo_char       : out std_logic_vector (6 downto 0);
         char            : in std_logic_vector (63 downto 0);
         valido          : out   std_logic
     );
@@ -34,14 +34,14 @@ begin
 
 
     valido          <=  muestra 
+
+    --las columnas van desde el numero de bit 8 que se llama 7
     with   columna (9 downto 7) select 
-    codigo_char <=  "" when "0000"
-                    "" when "0000"
-                    "" when "0000"
-                    "" when "0000"
-                    "" when "0000"
-                    "" when "0000"
-                    "" when "0000"
-                    "0000" when others;
+    codigo_char <=  "1001000" when "000"
+                    "1001111" when "001"
+                    "1001100" when "010"
+                    "1000001" when "011"
+                    "0100001" when "100"
+                "0000000" when others;
 
 end solucion;
