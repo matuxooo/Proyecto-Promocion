@@ -63,4 +63,9 @@ architecture arch of top is
     end component;
 
 
-    signal
+    
+    signal alinea       : std_logic_vector (9 downto 0);
+    signal cont_act_h   : std_logic_vector(9 downto 0);
+    signal cont_h       : std_logic_vector(9 downto 0);
+    signal cont_v       : std_logic_vector(9 downto 0);
+    signal cont_act_v   : std_logic_vector(9 downto 0);
