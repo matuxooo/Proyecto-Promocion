@@ -64,7 +64,7 @@ flipflop_v: ffd
 
     data_visible: process(all)
     begin
-        if((unsigned(cont_act_h) <= 639) and (unsigned(cont_act_v) >= 112) and (unsigned(cont_act_v) <= 240) )then
+        if((unsigned(cont_act_h) <= 639) and (unsigned(cont_act_v) >= 210) and (unsigned(cont_act_v) <= 338) )then
             muestra <= '1';
             else
                 muestra <= '0';

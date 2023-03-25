@@ -6,12 +6,11 @@ use IEEE.numeric_std.all;
 
 entity generador is
     port (
-    fila_z     : in        std_logic_vector    (2 downto 0);
-    columna_z   : in        std_logic_vector    (2 downto 0);
-    char        : in        std_logic_vector    (63 downto 0);
-    muestra     : in std_logic;
-    --n_zona      : in std_logic_vector (4 downto 0);
-    px_visible     : out       std_logic
+    fila_z          : in        std_logic_vector    (2 downto 0);
+    columna_z       : in        std_logic_vector    (2 downto 0);
+    char            : in        std_logic_vector    (63 downto 0);
+    muestra         : in        std_logic;
+    px_visible      : out       std_logic
     );
 end  generador;
 

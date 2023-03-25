@@ -26,21 +26,18 @@ begin
 
     columna_z       <= columna (6 downto 4);
 
-
-
-    alinea          <= std_logic_vector( unsigned (fila) - 112);
+    alinea          <= std_logic_vector( unsigned (fila) - 211);
     
     fila_z         <=  alinea (6 downto 4);
-
 
     valido          <=  muestra; 
 
     --las columnas van desde el numero de bit 8 que se llama 7
     with   columna (9 downto 7) select 
-    codigo_char <=  "1001000" when "000",
-                    "1001111" when "001",
-                    "1001100" when "010",
-                    "1000001" when "011",
+    codigo_char <=  "1001101" when "000",
+                    "1000001" when "001",
+                    "1010100" when "010",
+                    "1001001" when "011",
                     "0100001" when "100",
                 "0000000" when others;
 

@@ -72,8 +72,6 @@ architecture arch of top is
     end component;
 
 --señales generador de caract
-    --signal fila_z         :         std_logic_vector    (2 downto 0);
-   -- signal columna_z      :         std_logic_vector    (2 downto 0);
     signal char           :         std_logic_vector    (63 downto 0);
     signal muestra        :     std_logic;
     signal px_visible     :      std_logic;
@@ -81,18 +79,15 @@ architecture arch of top is
  --señales posicion_texto
     signal fila            :    std_logic_vector    (9 downto 0);
     signal columna         :    std_logic_vector    (9 downto 0);  
-    --signal  muestra        :    std_logic;      
     signal fila_z          :     std_logic_vector    (2 downto 0);
     signal columna_Z       :     std_logic_vector    (2 downto 0);  
     signal n_zona          :    std_logic_vector    (4 downto 0);
-    --signal codigo_char     :    std_logic_vector (6 downto 0);
-    --signal char            :    std_logic_vector (63 downto 0);
+    
     signal valido          :    std_logic;
 
 --señales tabla decaract
     signal codigo_char     : std_logic_vector (6 downto 0);
-    --signal char            :  std_logic_vector (63 downto 0)
-
+    
 --señales sync
     signal rst     : std_logic;
     signal clock     : std_logic;
@@ -102,6 +97,7 @@ architecture arch of top is
 
 
 begin
+
 rst<='0';
 pll: clock_video_pll
 port map(
@@ -128,7 +124,7 @@ port map(
         columna_z =>columna_z ,
         char      =>char      ,
         muestra   =>muestra   ,
-        px_visible=>px_visible
+        px_visible=>salida_vid
     );
 
     pos_txt: posicion_texto
