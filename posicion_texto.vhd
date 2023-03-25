@@ -33,15 +33,15 @@ begin
     fila_z         <=  alinea (6 downto 4);
 
 
-    valido          <=  muestra 
+    valido          <=  muestra; 
 
     --las columnas van desde el numero de bit 8 que se llama 7
     with   columna (9 downto 7) select 
-    codigo_char <=  "1001000" when "000"
-                    "1001111" when "001"
-                    "1001100" when "010"
-                    "1000001" when "011"
-                    "0100001" when "100"
+    codigo_char <=  "1001000" when "000",
+                    "1001111" when "001",
+                    "1001100" when "010",
+                    "1000001" when "011",
+                    "0100001" when "100",
                 "0000000" when others;
 
 end solucion;

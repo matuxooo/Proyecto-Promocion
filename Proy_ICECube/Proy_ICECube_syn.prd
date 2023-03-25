@@ -1,0 +1,13 @@
+#--  Synopsys, Inc.
+#--  Version L-2016.09L+ice40
+#--  Project file C:\Users\matu-\OneDrive\Documentos\Electronica 2\Proyecto Promocion\Proyecto-Promocion\Proy_ICECube\Proy_ICECube_syn.prd
+#--  Written on Sat Mar 25 16:54:15 2023
+
+#
+### Watch Implementation type ###
+#
+watch_impl -all
+#
+### Watch Implementation properties ###
+#
+watch_prop -clear

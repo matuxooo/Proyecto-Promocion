@@ -10,10 +10,11 @@ port (
 );
 end tabla_caract;
 architecture solucion of tabla_caract is
-signal codigo_char_e : std_logic_vector (6 downto 0);
+
+    signal codigo_char_e : integer;
     begin 
   
-    codigo_char_e  <=  ( unsigned(codigo_char));
+    codigo_char_e  <=  to_integer( unsigned(codigo_char));
     with codigo_char_e select
     char <=    x"0000000000000000"  when  0,      
                x"7e81a581bd99817e"  when  1, 
