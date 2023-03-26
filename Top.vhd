@@ -20,8 +20,6 @@ architecture arch of top is
         port(
             clk       : in std_logic;
             rst       : in std_logic;
-            
-                             
             sync_h    : out std_logic;
             sync_v    : out std_logic;
             muestra   : out std_logic; 
@@ -32,11 +30,11 @@ architecture arch of top is
 
      
     component clock_video_pll
-    port(
-        REFERENCECLK:   in  std_logic;
-        PLLOUTCORE:     out std_logic;
-        PLLOUTGLOBAL:   out std_logic;
-        RESET:          in  std_logic
+        port(
+            REFERENCECLK:   in  std_logic;
+            PLLOUTCORE  :   out std_logic;
+            PLLOUTGLOBAL:   out std_logic;
+            RESET       :   in  std_logic
         );
         end component;
     component generador is
@@ -44,53 +42,51 @@ architecture arch of top is
         fila_z          : in        std_logic_vector    (2 downto 0);
         columna_z       : in        std_logic_vector    (2 downto 0);
         char            : in        std_logic_vector    (63 downto 0);
-        muestra         : in std_logic;
-        --n_zona      : in std_logic_vector (4 downto 0);
+        muestra         : in        std_logic;
         px_visible      : out       std_logic
         );
     end  component;
 
     component posicion_texto is
         port (
-            fila           : in    std_logic_vector    (9 downto 0);
-            columna        : in    std_logic_vector    (9 downto 0);  
+            fila           : in    std_logic_vector     (9 downto 0);
+            columna        : in    std_logic_vector     (9 downto 0);  
             muestra        : in    std_logic;      
-            fila_z         : out    std_logic_vector    (2 downto 0);
-            columna_Z      : out    std_logic_vector    (2 downto 0);  
-            n_zona         : out   std_logic_vector    (4 downto 0);
-            codigo_char    : out std_logic_vector (6 downto 0);
-            char           : in std_logic_vector (63 downto 0);
+            fila_z         : out   std_logic_vector     (2 downto 0);
+            columna_Z      : out   std_logic_vector     (2 downto 0);  
+            n_zona         : out   std_logic_vector     (4 downto 0);
+            codigo_char    : out   std_logic_vector     (6 downto 0);
+            char           : in    std_logic_vector     (63 downto 0);
             valido         : out   std_logic
         );
     end component;
 
     component tabla_caract is 
         port (  
-            codigo_char     : in std_logic_vector (6 downto 0);
-            char            : out std_logic_vector (63 downto 0)
+            codigo_char     : in    std_logic_vector (6 downto 0);
+            char            : out   std_logic_vector (63 downto 0)
         );
     end component;
 
 --señales generador de caract
-    signal char           :         std_logic_vector    (63 downto 0);
-    signal muestra        :     std_logic;
+    signal char           :      std_logic_vector    (63 downto 0);
+    signal muestra        :      std_logic;
     signal px_visible     :      std_logic;
 
  --señales posicion_texto
     signal fila            :    std_logic_vector    (9 downto 0);
     signal columna         :    std_logic_vector    (9 downto 0);  
-    signal fila_z          :     std_logic_vector    (2 downto 0);
-    signal columna_Z       :     std_logic_vector    (2 downto 0);  
+    signal fila_z          :    std_logic_vector    (2 downto 0);
+    signal columna_Z       :    std_logic_vector    (2 downto 0);  
     signal n_zona          :    std_logic_vector    (4 downto 0);
-    
     signal valido          :    std_logic;
 
 --señales tabla decaract
     signal codigo_char     : std_logic_vector (6 downto 0);
     
 --señales sync
-    signal rst     : std_logic;
-    signal clock     : std_logic;
+    signal rst          : std_logic;
+    signal clock        : std_logic;
 
     
   
@@ -110,7 +106,7 @@ port map(
     sincro: sync
     port map(
         rst     =>  rst    ,
-        clk     =>  clock    ,
+        clk     =>  clock  ,
         sync_v  =>  sync_v ,
         sync_h  =>  sync_h ,
         muestra =>  muestra,
@@ -120,24 +116,24 @@ port map(
 
     gen: generador
     port map(
-        fila_z    =>fila_z    ,
-        columna_z =>columna_z ,
-        char      =>char      ,
-        muestra   =>muestra   ,
-        px_visible=>salida_vid
+        fila_z      =>  fila_z    ,
+        columna_z   =>  columna_z ,
+        char        =>  char      ,
+        muestra     =>  muestra   ,
+        px_visible  =>  salida_vid
     );
 
     pos_txt: posicion_texto
     port map(
-        fila       =>fila       ,
-        columna    =>columna    ,
-        muestra    =>muestra    ,
-        fila_z     =>fila_z     ,
-        columna_Z  =>columna_Z  ,
-        n_zona     =>n_zona     ,
-        codigo_char=>codigo_char,
-        char       =>char       ,
-        valido     =>valido     
+        fila        =>   fila       ,
+        columna     =>   columna    ,
+        muestra     =>   muestra    ,
+        fila_z      =>   fila_z     ,
+        columna_Z   =>   columna_Z  ,
+        n_zona      =>   n_zona     ,
+        codigo_char =>   codigo_char,
+        char        =>   char       ,
+        valido      =>   valido     
     );
 
     tabla_char: tabla_caract

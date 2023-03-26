@@ -7,8 +7,8 @@ entity sync is
  port(
             rst     :in std_logic;
             clk     :in std_logic;
-            sync_v   :out std_logic;
-            sync_h   :out std_logic;
+            sync_v  :out std_logic;
+            sync_h  :out std_logic;
             muestra :out std_logic;
             fila    :out std_logic_vector(9 downto 0);
             columna :out std_logic_vector(9 downto 0)
@@ -75,10 +75,7 @@ flipflop_v: ffd
 
     sync_h<='1' when ((unsigned(cont_act_h) >= 656) and (unsigned(cont_act_h) <= 751)) else '0';
     sync_v<='1' when ((unsigned(cont_act_v) >= 490) and (unsigned(cont_act_v) <= 491)) else '0';
-    --muestra<='1' when(sync_h = '0' and sync_v ='0') else '0';
-            
+    
 
     end solucion;
         
--- columna visible <= 639
--- 111 >= fila visible <= 240 
