@@ -73,8 +73,8 @@ flipflop_v: ffd
 
 
 
-    sync_h<='1' when ((unsigned(cont_act_h) >= 656) and (unsigned(cont_act_h) <= 751)) else '0';
-    sync_v<='1' when ((unsigned(cont_act_v) >= 490) and (unsigned(cont_act_v) <= 491)) else '0';
+    sync_h<='0' when ((unsigned(cont_act_h) >= 656) and (unsigned(cont_act_h) <= 751)) else '1';
+    sync_v<='0' when ((unsigned(cont_act_v) >= 490) and (unsigned(cont_act_v) <= 491)) else '1';
     
 
     end solucion;

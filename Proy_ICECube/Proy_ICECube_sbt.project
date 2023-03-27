@@ -4,7 +4,7 @@ Version=Lattice Semiconductor Corporation iCEcube - Release: 2020.12.27943 - Bui
 ProjectName=Proy_ICECube
 Vendor=SiliconBlue
 Synthesis=synplify
-ProjectVFiles=../Top.vhd=work,../Tabla_caract.vhd=work,../ffd.vhd=work,../generador.vhd=work,../posicion_texto.vhd=work,../sync.vhd=work,../clock_video_pll.v
+ProjectVFiles=../Top.vhd=work,../Tabla_caract.vhd=work,../ffd.vhd=work,../generador.vhd=work,../posicion_texto.vhd=work,../sync.vhd=work,../clock_video_pll.v=work,../gen_desplazamiento.vhd
 ProjectCFiles=
 CurImplementation=Proy_ICECube_Implmnt
 Implementations=Proy_ICECube_Implmnt

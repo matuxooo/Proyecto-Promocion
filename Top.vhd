@@ -47,6 +47,16 @@ architecture arch of top is
         );
     end  component;
 
+    component gen_desplazamiento is
+        port(
+            sync_v              :in     std_logic;
+            clk                 :in     std_logic;
+            rst                 :in     std_logic;
+            desplazamiento      :out    std_logic_vector(3 downto 0)
+
+    );
+    end component;
+
     component posicion_texto is
         port (
             fila           : in    std_logic_vector     (9 downto 0);
@@ -57,7 +67,8 @@ architecture arch of top is
             n_zona         : out   std_logic_vector     (4 downto 0);
             codigo_char    : out   std_logic_vector     (6 downto 0);
             char           : in    std_logic_vector     (63 downto 0);
-            valido         : out   std_logic
+            valido         : out   std_logic;
+            desplazamiento : in std_logic_vector (3 downto 0)
         );
     end component;
 
@@ -71,7 +82,6 @@ architecture arch of top is
 --señales generador de caract
     signal char           :      std_logic_vector    (63 downto 0);
     signal muestra        :      std_logic;
-    signal px_visible     :      std_logic;
 
  --señales posicion_texto
     signal fila            :    std_logic_vector    (9 downto 0);
@@ -80,6 +90,7 @@ architecture arch of top is
     signal columna_Z       :    std_logic_vector    (2 downto 0);  
     signal n_zona          :    std_logic_vector    (4 downto 0);
     signal valido          :    std_logic;
+    signal desplaz  :    std_logic_vector    (3 downto 0);
 
 --señales tabla decaract
     signal codigo_char     : std_logic_vector (6 downto 0);
@@ -88,7 +99,7 @@ architecture arch of top is
     signal rst          : std_logic;
     signal clock        : std_logic;
 
-    
+    signal s_sync_v : std_logic;
   
 
 
@@ -103,17 +114,25 @@ port map(
 
 );
 
+    gen_desplazamiento_1: gen_desplazamiento
+    port map(
+        sync_v=>s_sync_v,
+        rst=>rst,
+        clk=>clock,
+        desplazamiento=>desplaz
+    );
+    led_1 <= desplaz(0);
     sincro: sync
     port map(
         rst     =>  rst    ,
         clk     =>  clock  ,
-        sync_v  =>  sync_v ,
+        sync_v  =>  s_sync_v ,
         sync_h  =>  sync_h ,
         muestra =>  muestra,
         fila    =>  fila   ,
         columna =>  columna
     );
-
+    sync_v <= s_sync_v;
     gen: generador
     port map(
         fila_z      =>  fila_z    ,
@@ -122,7 +141,7 @@ port map(
         muestra     =>  muestra   ,
         px_visible  =>  salida_vid
     );
-
+ 
     pos_txt: posicion_texto
     port map(
         fila        =>   fila       ,
@@ -133,7 +152,8 @@ port map(
         n_zona      =>   n_zona     ,
         codigo_char =>   codigo_char,
         char        =>   char       ,
-        valido      =>   valido     
+        valido      =>   valido,
+        desplazamiento =>desplaz
     );
 
     tabla_char: tabla_caract
@@ -141,5 +161,7 @@ port map(
         codigo_char => codigo_char,
         char        => char       
     );
+
+
 
 end arch;

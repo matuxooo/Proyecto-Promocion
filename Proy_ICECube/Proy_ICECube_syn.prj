@@ -15,6 +15,7 @@ add_file -vhdl -lib work "../generador.vhd"
 add_file -vhdl -lib work "../posicion_texto.vhd" 
 add_file -vhdl -lib work "../sync.vhd" 
 add_file -verilog -lib work "../clock_video_pll.v" 
+add_file -vhdl -lib work "../gen_desplazamiento.vhd" 
 #implementation: "Proy_ICECube_Implmnt"
 impl -add Proy_ICECube_Implmnt -type fpga
 
