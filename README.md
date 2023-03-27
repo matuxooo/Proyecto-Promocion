@@ -1,6 +1,6 @@
 #  Proyecto Marquesina VGA - Ing. Electrónica 2023
 
-###Integrantes del grupo	
+### Integrantes del grupo	
 **Ajmat, Juan Ignacio - Figueroa, Matias**
 
 ## Breve descripción
