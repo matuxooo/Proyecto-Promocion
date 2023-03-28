@@ -18,8 +18,8 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>C:/Users/matu-/OneDrive/Documentos/Electronica 2/Proyecto Promocion/Proyecto-Promocion/Proy_ICECube/Proy_ICECube_Implmnt/sbt/outputs/bitmap/top_bitmap.bin</File>
-			<FileTime>03/25/23 17:23:47</FileTime>
-			<JedecChecksum>0x3806</JedecChecksum>
+			<FileTime>03/27/23 19:40:04</FileTime>
+			<JedecChecksum>0xE349</JedecChecksum>
 			<Operation>SPI Flash Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
@@ -102,6 +102,6 @@
 	<CableOptions>
 		<CableName>USB2</CableName>
 		<PortAdd>FTUSB-0</PortAdd>
-		<USBID>Dual RS232-HS A Location 0000 Serial A</USBID>
+		<USBID>Dual RS232-HS A Location 0000</USBID>
 	</CableOptions>
 </ispXCF>
