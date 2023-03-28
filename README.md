@@ -62,6 +62,9 @@ La lógica detrás de la señal "px_visible" se basa en el valor de los vectores
 
 Este código unifica y conecta todo, posee un puerto de entrada "clk" (reloj) y tres puertos de salida "salida_vid", "sync_h" y "sync_v". El diseño incluye componentes adicionales (sync, clock_video_pll, generador, posicion_texto y tabla_caract), cuyas señales de entrada y salida se conectan a los puertos de la entidad mediante la correspondiente instrucción "port map". En este componente conectamos entre sí los componentes antes descriptos mediante señales internas y es el que define cuales seran las señales de los componentes internos que luego conectaremos a las salidas y entradas fisicas de la FPGA mediante el uso de software especifico como ser el `ICECube` y el `Diamond Programmer`.
 
+## gen_desplazamiento.vhd
+
+El módulo tiene cuatro puertos, 3 de entrada  "sync_v" , "clk" , "rst"  y "desplazamiento" de salida cuyo ancho de la señal es de 4 bits .El funcionamiento del módulo se basa en el uso de la señal de sincronización "sync_v", la cual habilita un contador de 60 ciclos de reloj "div_60". Cuando se ha contado un ciclo completo, se incrementa un contador de desplazamiento "cont_desp" y se reinicia el contador de 60 ciclos. La señal de desplazamiento "desplazamiento" se actualiza con el valor actual del contador de desplazamiento. Este modulo se utiliza para poder mover los caracteres en la pantalla.
 
 
 
@@ -69,12 +72,4 @@ Este código unifica y conecta todo, posee un puerto de entrada "clk" (reloj) y 
 
 
 
-Formas del texto:
-# Titulo
-## Subtitulo
-**Negritas**
-`resaltado en gris`
-````
-bloque en gris
-````
 
