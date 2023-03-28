@@ -22,16 +22,23 @@ end posicion_texto;
 architecture solucion of posicion_texto is
     type tipo_tabla is array (0 to 15) of std_logic_vector(6 downto 0);
     constant tabla_texto : tipo_tabla := (
-            0 => 7x"48",
-            1 => 7x"4F",
-            2 => 7x"4C",
-            3 => 7x"41",
-            4 => 7x"00",
-            5 => 7x"43",
-            6 => 7x"41",
-            7 => 7x"52",
-            8 => 7x"4F",
-            9 => 7x"21",
+            0  => 7x"45",
+            1  => 7x"4C",
+            2  => 7x"45",
+            3  => 7x"43",
+            4  => 7x"54",
+            5  => 7x"52",
+            6  => 7x"4F",
+            7  => 7x"4E",
+            8  => 7x"49",
+            9  => 7x"43",
+            10 => 7x"41",
+            11 => 7x"00",
+            12 => 7x"49",
+            13 => 7x"49",
+            14 => 7x"21",
+            15 => 7x"03",
+
             others => 0);
     signal alinea : std_logic_vector (9 downto 0);
 
